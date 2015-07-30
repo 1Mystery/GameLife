@@ -12,12 +12,12 @@ namespace ConsoleApplication
         private int dimensionX, dimensionY;
 
         //public Life() { }
-        public Life(int _dimensionX,int _dimensionY)
-		{
+        public Life(int _dimensionX, int _dimensionY)
+        {
             dimensionX = _dimensionX;
             dimensionY = _dimensionY;
             StartGame();
-		}
+        }
 
         private cellsArray[,] ProcessGenerations(cellsArray[,] cells)
         {
@@ -29,10 +29,10 @@ namespace ConsoleApplication
                 {
                     cells[i, j].nextGeneration = 0;
                 }
-            }    
+            }
 
-            for (int row = 0; row <  dimensionX; row++)
-            { 
+            for (int row = 0; row < dimensionX; row++)
+            {
                 for (int column = 0; column < dimensionY; column++)
                 {
                     neighbours = 0;
@@ -40,8 +40,8 @@ namespace ConsoleApplication
                     if (row > 0 && column > 0)
                         if (cells[row - 1, column - 1].currentGeneration > 0)
                             neighbours++;
-                        
-                    if (row > 0 )
+
+                    if (row > 0)
                         if (cells[row - 1, column].currentGeneration > 0)
                             neighbours++;
 
@@ -63,18 +63,18 @@ namespace ConsoleApplication
 
                     if (row < dimensionX - 1 && column > 0)
                         if (cells[row + 1, column - 1].currentGeneration > 0)
-                            neighbours++;    
-                        
+                            neighbours++;
+
                     if (column > 0)
                         if (cells[row, column - 1].currentGeneration > 0)
-                            neighbours++;                         
+                            neighbours++;
 
                     if (neighbours < 2)
                         cells[row, column].nextGeneration = 0;
                     if (neighbours > 3)
                         cells[row, column].nextGeneration = 0;
                     if ((neighbours == 2 || neighbours == 3) && cells[row, column].currentGeneration > 0)
-                        cells[row, column].nextGeneration = 1; 
+                        cells[row, column].nextGeneration = 1;
                     if (neighbours == 3)
                         cells[row, column].nextGeneration = 1;
                 }
@@ -85,7 +85,7 @@ namespace ConsoleApplication
                 for (int j = 0; j < dimensionY; j++)
                 {
                     cells[i, j].currentGeneration = cells[i, j].nextGeneration;
-                }   
+                }
             }
             return cells;
         }
@@ -102,7 +102,7 @@ namespace ConsoleApplication
                         cells[row, column].currentGeneration = '*';
                         Console.Write((char)cells[row, column].currentGeneration);
                     }
-                    else { Console.Write(" "); } 
+                    else { Console.Write(" "); }
                 }
                 Console.WriteLine();
             }
@@ -129,7 +129,7 @@ namespace ConsoleApplication
             Console.BackgroundColor = ConsoleColor.White;
             Console.ForegroundColor = (ConsoleColor.Black);
             while (true)
-            { 
+            {
                 ProcessGenerations(cells);
                 Console.SetCursorPosition(0, 0);
                 PrintCells(cells);
