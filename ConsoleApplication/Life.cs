@@ -11,7 +11,6 @@ namespace ConsoleApplication
     {
         private int dimensionX, dimensionY;
 
-        //public Life() { }
         public Life(int _dimensionX, int _dimensionY)
         {
             dimensionX = _dimensionX;
