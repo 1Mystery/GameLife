@@ -13,14 +13,15 @@ namespace ConsoleApplication
 
         public StrategyOfUnlimitedField()
         {
-            dimensionX = 35;
-            dimensionY = 35;
+            dimensionX = 30;
+            dimensionY = 30;
         }
 
         public void Algorithm()
         {
             Console.WriteLine("Starting algorithm for strategy 2.");
             Thread.Sleep(3000);
+            Console.Clear();
             StartGame();
         }
 

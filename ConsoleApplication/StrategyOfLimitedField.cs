@@ -21,6 +21,7 @@ namespace ConsoleApplication
         {
             Console.WriteLine("Starting algorithm for strategy 1.");
             Thread.Sleep(3000);
+            Console.Clear();
             StartGame();
         }
 
