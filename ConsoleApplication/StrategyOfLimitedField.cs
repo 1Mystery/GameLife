@@ -34,7 +34,6 @@ namespace ConsoleApplication
             {
                 for (int column = 0; column < dimensionY; column++)
                 {
-                    //neighbours = CalculateCountOfNeighbours(currentGeneration, row, column);
                     neighbours = IsNeighbour(currentGeneration, row - 1, column - 1) +
                         IsNeighbour(currentGeneration, row - 1, column) +
                         IsNeighbour(currentGeneration, row - 1, column + 1) +
@@ -64,43 +63,6 @@ namespace ConsoleApplication
             }
             return currentGeneration;
         }
-
-        /*private int CalculateCountOfNeighbours(int[,] currentGeneration, int row, int column)
-        {
-            int neighbours = 0;
-            if (row > 0 && column > 0)
-                if (currentGeneration[row - 1, column - 1] > 0)
-                    neighbours++;
-
-            if (row > 0 && column >= 0 && column < dimensionY)
-                if (currentGeneration[row - 1, column] > 0)
-                    neighbours++;
-
-            if (row > 0 && column < dimensionY - 1)
-                if (currentGeneration[row - 1, column + 1] > 0)
-                    neighbours++;
-
-            if (row >= 0 && row < dimensionX && column < dimensionY - 1)
-                if (currentGeneration[row, column + 1] > 0)
-                    neighbours++;
-
-            if (row < dimensionX - 1 && column < dimensionY - 1)
-                if (currentGeneration[row + 1, column + 1] > 0)
-                    neighbours++;
-
-            if (row < dimensionX - 1 && column >= 0 && column < dimensionY)
-                if (currentGeneration[row + 1, column] > 0)
-                    neighbours++;
-
-            if (row < dimensionX - 1 && column > 0)
-                if (currentGeneration[row + 1, column - 1] > 0)
-                    neighbours++;
-
-            if (row >= 0 && row < dimensionX && column > 0)
-                if (currentGeneration[row, column - 1] > 0)
-                    neighbours++;
-            return neighbours;
-        } */
 
         private int IsNeighbour(int[,] currentGeneration, int row, int column)
         {

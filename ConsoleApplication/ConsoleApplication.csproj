@@ -41,9 +41,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CheckDimension.cs" />
+    <Compile Include="CheckForModification.cs" />
     <Compile Include="Context.cs" />
+    <Compile Include="CountOfNeighbours.cs" />
+    <Compile Include="Dimensions.cs" />
+    <Compile Include="FieldValidation.cs" />
+    <Compile Include="GenerationalFill.cs" />
+    <Compile Include="Generation.cs" />
+    <Compile Include="GenerationalChange.cs" />
+    <Compile Include="PrintResult.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Region.cs" />
     <Compile Include="StrategyOfLimitedField.cs" />
     <Compile Include="StrategyOfUnlimitedField.cs" />
   </ItemGroup>

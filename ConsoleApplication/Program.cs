@@ -13,6 +13,38 @@ namespace ConsoleApplication
         {
             try
             {
+                Console.WriteLine("1. Start game with limited field");
+                Console.WriteLine("2. Start game with unlimited field");
+                Console.WriteLine("");
+                Console.Write("Please type variant: ");
+                int variant = int.Parse(Console.ReadLine());
+                Context context = new Context();
+                switch (variant)
+                {
+                    case 1: 
+                        context.SetStrategy(new StrategyOfLimitedField(50, 100)); context.ExecuteOperation(); break;
+                    case 2:
+                        Console.Clear();
+                        Console.Write("Please enter dimension X: ");
+                        int dimensionX = int.Parse(Console.ReadLine());
+                        Console.Write("Please enter dimension Y: ");
+                        int dimensionY = int.Parse(Console.ReadLine());
+                        context.SetStrategy(new StrategyOfUnlimitedField(dimensionY, dimensionX)); context.ExecuteOperation(); break;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.ToString());
+            }
+            finally
+            {
+                Console.ReadLine();
+            }
+
+
+
+            /*try
+            {
                 Console.WriteLine("1. Start game with limited field (with default dimension 50x100)");
                 Console.WriteLine("1.1 Start game with limited field (with ability to set dimension)");
                 Console.WriteLine("2. Start game with unlimited field");
@@ -51,7 +83,7 @@ namespace ConsoleApplication
             finally
             {
                 Console.ReadLine();
-            }
+            }  */
 
         }
     }
