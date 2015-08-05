@@ -44,8 +44,6 @@
     <Compile Include="CheckDimension.cs" />
     <Compile Include="CheckForModification.cs" />
     <Compile Include="Context.cs" />
-    <Compile Include="CountOfNeighbours.cs" />
-    <Compile Include="Dimensions.cs" />
     <Compile Include="FieldValidation.cs" />
     <Compile Include="GenerationalFill.cs" />
     <Compile Include="Generation.cs" />
