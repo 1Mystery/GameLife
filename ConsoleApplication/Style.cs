@@ -6,9 +6,14 @@ using System.Threading.Tasks;
 
 namespace ConsoleApplication
 {
-    class Style
+    public abstract class Style
     {
-        public void ApplyConsoleStyle()
+        public abstract void ApplyStyle(Generation currentGeneration);
+    }
+
+    class ConsoleStyle : Style
+    {
+        public override void ApplyStyle()
         {
             Console.CursorVisible = false;
             Console.SetCursorPosition(0, 0);
