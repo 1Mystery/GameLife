@@ -17,7 +17,7 @@ namespace ConsoleApplication
 
         public void Algorithm()
         {
-            Console.WriteLine("Starting algorithm for strategy 1.");
+            Console.WriteLine("Starting algorithm for strategy 2.");
             Thread.Sleep(3000);
             Console.Clear();
             _game.StartGame();
