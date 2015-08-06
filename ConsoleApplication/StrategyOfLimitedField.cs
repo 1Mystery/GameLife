@@ -9,10 +9,10 @@ namespace ConsoleApplication
 {
     public class StrategyOfLimitedField : IStrategy
     {
-        private readonly Game _game;
+        private readonly GameLife _game;
         public StrategyOfLimitedField(int dimensionX, int dimensionY, int increase)
         {
-            _game = new Game(dimensionX, dimensionY, increase);
+            _game = new GameLife(dimensionX, dimensionY, increase);
         }
 
         public void Algorithm()
@@ -20,7 +20,7 @@ namespace ConsoleApplication
             Console.WriteLine("Starting algorithm for strategy 1.");
             Thread.Sleep(3000);
             Console.Clear();
-            _game.StartGameLife();
+            _game.StartGame();
         }
     }
 }

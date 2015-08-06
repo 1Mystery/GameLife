@@ -7,14 +7,19 @@ using System.Threading.Tasks;
 
 namespace ConsoleApplication
 {
-    class Game
+    public abstract class Game
+    {
+        public abstract void StartGame();
+    }
+
+    class GameLife : Game
     {
         private readonly GenerationalFill _fillGeneration;
         private readonly GenerationalPrint _printResult;
         private Generation _currentGeneration;
         private readonly ConsoleStyle _consoleStyle;
 
-        public Game(int dimensionX, int dimensionY, int increase)
+        public GameLife(int dimensionX, int dimensionY, int increase)
         {
             _fillGeneration = new GenerationalFill();
             _printResult = new GenerationalPrint();
@@ -26,7 +31,7 @@ namespace ConsoleApplication
 
         }
 
-        public void StartGameLife()
+        public override void StartGame()
         {
             _fillGeneration.MakeFilling(_currentGeneration);
             _consoleStyle.ApplyStyle();
