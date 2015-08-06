@@ -13,14 +13,6 @@ namespace ConsoleApplication
         public abstract void StopGame();
     }
 
-
-
-    /* public MyThread(string name)
-     {
-         Thrd = new Thread(this.Run);
-         Thrd.Name = name;
-         Thrd.Start(); */
-
     class GameLife : Game
     {
         private readonly GenerationalFill _fillGeneration;
