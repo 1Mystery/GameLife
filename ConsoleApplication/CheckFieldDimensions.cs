@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace ConsoleApplication
 {
-    class CheckDimension
+    class CheckFieldDimensions
     {
         public int CheckFieldColumns(Generation nextGeneration, int column, int step)
         {
-            for (int j = column; j <= nextGeneration.DimensionY && j >= 0; j += step)
+            for (int j = column; j < nextGeneration.DimensionY && j >= 0; j += step)
             {
                 for (int i = 0; i < nextGeneration.DimensionX; i++)
                 {
@@ -22,7 +22,7 @@ namespace ConsoleApplication
 
         public int CheckFieldRows(Generation nextGeneration, int row, int step)
         {
-            for (int i = row; i <= nextGeneration.DimensionX && i >= 0; i += step)
+            for (int i = row; i < nextGeneration.DimensionX && i >= 0; i += step)
             {
                 for (int j = 0; j < nextGeneration.DimensionY; j++)
                 {

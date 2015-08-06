@@ -6,14 +6,13 @@ using System.Threading.Tasks;
 
 namespace ConsoleApplication
 {
-    class Generation
+    public class Generation
     {
         private List<Region> _data;
-        //private Dimensions _generationDimentions;
         public Generation()
         {
-            //_generationDimentions = new Dimensions();
             _data = new List<Region>();
+            this.Increase = 0;
         }
 
         public int ReadValueXY(int x, int y)
@@ -42,6 +41,9 @@ namespace ConsoleApplication
         }
 
         public int DimensionX { get; set; }
+
         public int DimensionY { get; set; }
+
+        public int Increase { get; set; }
     }
 }

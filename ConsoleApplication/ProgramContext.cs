@@ -12,7 +12,7 @@ namespace ConsoleApplication
         void Algorithm();
     }
 
-    public class Context
+    public class ProgramContext
     {
         private IStrategy _strategy;
 

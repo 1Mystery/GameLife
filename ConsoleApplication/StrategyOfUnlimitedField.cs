@@ -9,17 +9,10 @@ namespace ConsoleApplication
 {
     public class StrategyOfUnlimitedField : IStrategy
     {
-        private readonly GenerationalFill _fillGeneration;
-        private readonly PrintResult _printResult;
-        private Generation _currentGeneration;
-
-        public StrategyOfUnlimitedField(int dimensionX, int dimensionY)
+        private readonly Game _game;
+        public StrategyOfUnlimitedField(int dimensionX, int dimensionY, int increase)
         {
-            _fillGeneration = new GenerationalFill();
-            _printResult = new PrintResult();
-            _currentGeneration = new Generation();
-            _currentGeneration.DimensionX = dimensionX;
-            _currentGeneration.DimensionY = dimensionY;
+            _game = new Game(dimensionX, dimensionY, increase);
         }
 
         public void Algorithm()
@@ -27,27 +20,7 @@ namespace ConsoleApplication
             Console.WriteLine("Starting algorithm for strategy 2.");
             Thread.Sleep(3000);
             Console.Clear();
-            StartGame();
-        }
-
-        private void StartGame()
-        {
-            _fillGeneration.MakeRandomFilling(_currentGeneration);
-            Console.SetCursorPosition(0, 0);
-
-            _printResult.PrintResultToConsole(_currentGeneration);
-
-            while (_currentGeneration.Count() > 0)
-            {
-                _fillGeneration.RefillGeneration(_currentGeneration);
-                Console.SetCursorPosition(0, 0);
-                Console.BackgroundColor = ConsoleColor.Black;
-                Console.Clear();
-                Console.ForegroundColor = (ConsoleColor.Black);
-                Console.BackgroundColor = ConsoleColor.White;
-                _printResult.PrintResultToConsole(_currentGeneration);
-                Thread.Sleep(1000);
-            }
+            _game.StartGameLife();
         }
     }
 

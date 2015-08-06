@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace ConsoleApplication
 {
-    class CheckForModification : IDisposable
+    class CheckFieldModification : IDisposable
     {
 
         private Generation _currentGeneration;
         private int _row, _column;
         bool disposed = false;
 
-        public CheckForModification(Generation currentGeneration, int row, int column)
+        public CheckFieldModification(Generation currentGeneration, int row, int column)
         {
             _currentGeneration = currentGeneration;
             _row = row;

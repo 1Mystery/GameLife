@@ -6,9 +6,14 @@ using System.Threading.Tasks;
 
 namespace ConsoleApplication
 {
-    class PrintResult
+    public abstract class Print
     {
-        public void PrintResultToConsole(Generation currentGeneration)
+        public abstract void PrintResult(Generation currentGeneration);
+    }
+
+    class GenerationalPrint : Print
+    {
+        public override void PrintResult(Generation currentGeneration)
         {
             for (int row = 0; row < currentGeneration.DimensionX; row++)
             {
@@ -24,5 +29,11 @@ namespace ConsoleApplication
                 Console.WriteLine();
             }
         }
+
+        public void PrintGameOver()
+        {
+            Console.WriteLine("Game Over!");
+        }
+
     }
 }

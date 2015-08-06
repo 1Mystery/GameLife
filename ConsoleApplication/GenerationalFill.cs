@@ -6,15 +6,25 @@ using System.Threading.Tasks;
 
 namespace ConsoleApplication
 {
-    class GenerationalFill
+    public abstract class FillGeneration
+    {
+        public abstract void MakeFilling(Generation currentGeneration);
+        public abstract void CheckDimentions(Generation nextGeneration);
+    }
+
+    class GenerationalFill : FillGeneration
     {
         private GenerationalChange _makeChange;
+        private readonly CheckFieldDimensions _checkDimension;
+        private Dimentions _dimentions;
 
         public GenerationalFill()
         {
             _makeChange = new GenerationalChange();
+            _checkDimension = new CheckFieldDimensions();
+
         }
-        public void MakeRandomFilling(Generation currentGeneration)
+        public override void MakeFilling(Generation currentGeneration)
         {
             Random random = new Random();
             for (int row = 0; row < currentGeneration.DimensionX; row++)
@@ -31,22 +41,32 @@ namespace ConsoleApplication
         public Generation RefillGeneration(Generation currentGeneration)
         {
             Generation nextGeneration = new Generation();
-            nextGeneration.DimensionX = currentGeneration.DimensionX + 2;
-            nextGeneration.DimensionY = currentGeneration.DimensionY + 2;
+            nextGeneration.DimensionX = currentGeneration.DimensionX + currentGeneration.Increase * 2;
+            nextGeneration.DimensionY = currentGeneration.DimensionY + currentGeneration.Increase * 2;
 
             for (int row = 0; row < nextGeneration.DimensionX; row++)
             {
                 Region listRow = new Region();
                 for (int column = 0; column < nextGeneration.DimensionY; column++)
                 {
-                    CheckForModification check = new CheckForModification(currentGeneration, row - 1, column - 1);
+                    CheckFieldModification check = new CheckFieldModification(currentGeneration, row - currentGeneration.Increase, column - currentGeneration.Increase);
                     listRow.Add(check.CheckStatusForNeighbours());
                     check.Dispose();
                 }
                 nextGeneration.WriteRow(listRow);
             }
+            if (_checkDimension.CheckFieldRows(nextGeneration, 0, 1) == -1) { currentGeneration.ClearContent(); return currentGeneration; }
+            _dimentions = new Dimentions(currentGeneration.DimensionX, currentGeneration.DimensionY);
+            if (currentGeneration.Increase > 0) CheckDimentions(nextGeneration);
+            return _makeChange.RewriteGeneration(currentGeneration, nextGeneration, _dimentions);
+        }
 
-            return _makeChange.RewriteGeneration(currentGeneration, nextGeneration);
+        public override void CheckDimentions(Generation nextGeneration)
+        {
+            _dimentions.RowStart = _checkDimension.CheckFieldRows(nextGeneration, 0, 1);
+            _dimentions.RowEnd = _checkDimension.CheckFieldRows(nextGeneration, nextGeneration.DimensionX - 1, -1);
+            _dimentions.ColumnStart = _checkDimension.CheckFieldColumns(nextGeneration, 0, 1);
+            _dimentions.ColumnEnd = _checkDimension.CheckFieldColumns(nextGeneration, nextGeneration.DimensionY - 1, -1);
         }
     }
 }
