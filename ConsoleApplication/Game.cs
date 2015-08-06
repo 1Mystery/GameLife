@@ -10,6 +10,8 @@ namespace ConsoleApplication
     public abstract class Game
     {
         public abstract void StartGame();
+        public abstract void PauseGame();
+        public abstract void StopGame();
     }
 
     class GameLife : Game
@@ -46,5 +48,9 @@ namespace ConsoleApplication
             _consoleStyle.ApplyStyle();
             _printResult.PrintGameOver();
         }
+
+        public override void PauseGame() { }
+
+        public override void StopGame() { }
     }
 }
