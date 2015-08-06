@@ -8,7 +8,6 @@ namespace ConsoleApplication
 {
     public abstract class Style
     {
-        public abstract void SetStyle();
         public abstract void ApplyStyle();
     }
 
@@ -23,6 +22,5 @@ namespace ConsoleApplication
             Console.BackgroundColor = ConsoleColor.White;
         }
 
-        public override void SetStyle() { }
     }
 }

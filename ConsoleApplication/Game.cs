@@ -10,9 +10,16 @@ namespace ConsoleApplication
     public abstract class Game
     {
         public abstract void StartGame();
-        public abstract void PauseGame();
         public abstract void StopGame();
     }
+
+
+
+    /* public MyThread(string name)
+     {
+         Thrd = new Thread(this.Run);
+         Thrd.Name = name;
+         Thrd.Start(); */
 
     class GameLife : Game
     {
@@ -30,7 +37,6 @@ namespace ConsoleApplication
             _currentGeneration.DimensionY = dimensionY;
             _currentGeneration.Increase = increase;
             _consoleStyle = new ConsoleStyle();
-
         }
 
         public override void StartGame()
@@ -49,8 +55,7 @@ namespace ConsoleApplication
             _printResult.PrintGameOver();
         }
 
-        public override void PauseGame() { }
-
         public override void StopGame() { }
+
     }
 }
