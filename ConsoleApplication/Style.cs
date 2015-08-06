@@ -8,7 +8,7 @@ namespace ConsoleApplication
 {
     public abstract class Style
     {
-        public abstract void ApplyStyle(Generation currentGeneration);
+        public abstract void ApplyStyle();
     }
 
     class ConsoleStyle : Style
