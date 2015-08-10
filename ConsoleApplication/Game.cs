@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace ConsoleApplication
 {
-    public abstract class Game
+    public interface IGame
     {
-        public abstract void StartGame();
-        public abstract void StopGame();
+        void StartGame();
+        void StopGame();
     }
 
-    class GameLife : Game
+    class GameLife : IGame
     {
         private readonly GenerationalFill _fillGeneration;
         private readonly GenerationalPrint _printResult;
@@ -31,7 +31,7 @@ namespace ConsoleApplication
             _consoleStyle = new ConsoleStyle();
         }
 
-        public override void StartGame()
+        public void StartGame()
         {
             _fillGeneration.MakeFilling(_currentGeneration);
             _consoleStyle.ApplyStyle();
@@ -47,7 +47,7 @@ namespace ConsoleApplication
             _printResult.PrintGameOver();
         }
 
-        public override void StopGame() { }
+        public void StopGame() { }
 
     }
 }

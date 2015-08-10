@@ -8,9 +8,8 @@ namespace ConsoleApplication
 {
     class GenerationalChange
     {
-        public Generation RewriteGeneration(Generation currentGeneration, Generation nextGeneration, Dimentions dimentions)
+        public Generation RewriteGeneration(Generation currentGeneration, Generation nextGeneration, Dimention dimentions)
         {
-
             currentGeneration.DimensionX = dimentions.RowEnd - dimentions.RowStart + 1;
             currentGeneration.DimensionY = dimentions.ColumnEnd - dimentions.ColumnStart + 1;
             currentGeneration.ClearContent();
@@ -23,7 +22,6 @@ namespace ConsoleApplication
                 }
                 currentGeneration.WriteRow(listRow);
             }
-
             return currentGeneration;
         }
     }

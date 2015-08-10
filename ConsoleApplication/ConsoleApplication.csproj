@@ -45,6 +45,7 @@
     <Compile Include="CheckFieldModification.cs" />
     <Compile Include="Dimentions.cs" />
     <Compile Include="Game.cs" />
+    <Compile Include="InvalidInputFormatException.cs" />
     <Compile Include="ProgramContext.cs" />
     <Compile Include="GenerationalFill.cs" />
     <Compile Include="Generation.cs" />

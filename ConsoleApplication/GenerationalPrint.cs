@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace ConsoleApplication
 {
-    public abstract class Print
+    public interface IPrint
     {
-        public abstract void PrintField(Generation currentGeneration);
-        public abstract void PrintResult(Generation currentGeneration);
+        void PrintField(Generation currentGeneration);
+        void PrintResult(Generation currentGeneration);
     }
 
-    class GenerationalPrint : Print
+    class GenerationalPrint : IPrint
     {
 
-        public override void PrintField(Generation currentGeneration) { }
+        public void PrintField(Generation currentGeneration) { }
 
-        public override void PrintResult(Generation currentGeneration)
+        public void PrintResult(Generation currentGeneration)
         {
             for (int row = 0; row < currentGeneration.DimensionX; row++)
             {

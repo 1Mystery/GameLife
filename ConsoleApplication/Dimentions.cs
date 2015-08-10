@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ConsoleApplication
 {
-    class Dimentions
+    class Dimention
     {
-        public Dimentions(int dimentionX, int dimentionY)
+        public Dimention(int dimentionX, int dimentionY)
         {
             this.RowStart = 0;
             this.RowEnd = dimentionX - 1;
